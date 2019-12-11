@@ -20,8 +20,7 @@ def main():
 
     input_args = get_input_args()
     gpu = torch.cuda.is_available() and input_args.gpu
-    print("Predicting on {} using {}".format(
-        "GPU" if gpu else "CPU", input_args.checkpoint))
+    print("Predicting on {} using {}".format("GPU" if gpu else "CPU", input_args.checkpoint))
 
     model = toolkit.load_checkpoint(input_args.checkpoint)
 

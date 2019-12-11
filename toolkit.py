@@ -126,13 +126,13 @@ def model_create(struc, learning_rate, hidden_units, class_to_idx):
 
 def save_checkpoint(file, model, optimizer, struc, learning_rate, epochs):
     checkpoint = {'input_size': 1024,
-                  'architectures': 'densenet121',
+                  'architectures': 'vgg16',
                   'learing_rate': learning_rate,
                   'optimizer': optimizer.state_dict(),
                   'class_to_idx': model.class_to_idx,
                   'output_size': 102,
                   'epochs': epochs,
-                  'arch': 'densenet121',
+                  'arch': 'vgg16',
                   'state_dict': model.state_dict(),
                   }
 
@@ -143,7 +143,7 @@ def load_checkpoint(file):
     checkpoint = torch.load(file)
     class_to_idx = checkpoint['class_to_idx']
     learning_rate = checkpoint['learing_rate']
-    model, optimizer, criterion = model_create('densenet121',learning_rate, 500, class_to_idx)
+    model, optimizer, criterion = model_create('vgg16',learning_rate, 500, class_to_idx)
     model.load_state_dict(checkpoint['state_dict'])
     model.optimizer = checkpoint['optimizer']
     model.epochs = checkpoint['epochs']
