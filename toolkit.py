@@ -88,9 +88,9 @@ def model_config(struc, hidden_units):
         classifier_input_size = model.classifier.in_features       
     else:
         #Drag to vgg16
-	print("in this test you must choose either use: 'vgg16' or 'densenet121' ")
-	print("what you input is incorrect, use default value: vgg16")
-    	model = models.vgg16(pretrained=True)
+        print("in this test you must choose either use: vgg16 or densenet121")
+        print("what you input is incorrect, use default value: vgg16")
+        model = models.vgg16(pretrained=True)
         classifier_input_size = model.classifier[0].in_features
 
    # Freeze parameters so we don't backprop through them
